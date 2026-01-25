@@ -5,13 +5,46 @@
     <title>My first three.js app</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <canvas id="container"></canvas>    
-    <ul id="menu">
-        <li><button id="water">Faire grandir</button></li>
-        <li><button>Faire rétrécir</button></li>
-    </ul>
-    <script type="module" src="/main.js"></script>
 
+  <body>
+    <!-- UI OVERLAY -->
+    <main class="ui">
+      
+      <!-- STATUS BAR -->
+      <header class="status">
+        <output class="info">info 1</output>
+      </header>
+
+      <!-- TOOLS AREA -->
+      <section class="toolsarea">
+
+        <!-- LEFT TOOLBAR -->
+        <nav class="toolbar" id="left" aria-label="Left tools">
+          <button id="water">Button 1</button>
+          <button>Button 2</button>
+          <button>Button 3</button>
+        </nav>
+
+        <!-- SELECTED TOOL PANEL -->
+        <section class="selectedtool">
+          <aside class="extendedinterface">
+            <div id="tool1"></div>
+          </aside>
+        </section>
+
+        <!-- RIGHT TOOLBAR -->
+        <nav class="toolbar" id="right" aria-label="Right tools">
+          <button>Button 4</button>
+          <button>Button 5</button>
+          <button>Button 6</button>
+        </nav>
+
+      </section>
+    </main>
+
+    <!-- THREE.JS CANVAS -->
+    <canvas id="container"></canvas>
+
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
