@@ -106,7 +106,7 @@ body {
   padding: 10px;
   gap: 10px;
 
-  width: fit-content;
+  width: 300px;
   height: 100%;
   box-sizing: border-box;
 }

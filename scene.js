@@ -10,7 +10,7 @@ export function createScene(canvas) {
     0.1,
     100
   )
-  camera.position.set(2, 2, 4)
+  camera.position.set(0, 0, 4)
 
   const renderer = new THREE.WebGLRenderer({ canvas })
   renderer.setSize(canvas.clientWidth, canvas.clientHeight)

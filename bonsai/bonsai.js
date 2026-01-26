@@ -5,5 +5,11 @@ export class Bonsai {
   } = {}) {
     this.height = height
     this.width = width
+    this.pot = null
+  }
+
+    growth() {
+    this.height += 0.05
+    this.width += 0.01
   }
 }

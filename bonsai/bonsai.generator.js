@@ -17,5 +17,10 @@ export function generateBonsaiMesh(bonsai) {
 
   // (plus tard : branches, feuilles...)
 
-  return group
+  return {
+    group,
+    update() {
+      trunk.scale.y = bonsai.height
+    }
+  }
 }
