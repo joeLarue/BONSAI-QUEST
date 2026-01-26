@@ -36,7 +36,10 @@ export function generatePotMesh(pot) {
             group.add(bonsaiMesh.group) 
         }
         if (bonsaiMesh) {
-            if (bonsaiUpdate) {bonsaiUpdate()}
+            if (bonsaiUpdate) {
+              bonsaiUpdate()
+              bonsaiMesh.group.position.y = pot.height / 2
+            }
     }
   }
 }
