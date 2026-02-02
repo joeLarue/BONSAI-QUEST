@@ -15,8 +15,8 @@ export function createScene(canvas) {
   const renderer = new THREE.WebGLRenderer({ canvas })
   renderer.setSize(canvas.clientWidth, canvas.clientHeight)
 
-  const light = new THREE.DirectionalLight(0xffffff, 1)
-  light.position.set(5, 5, 5)
+  const light = new THREE.DirectionalLight(0xffffff, 4)
+  light.position.set(5, 10, 5)
   scene.add(light)
 
   return { scene, camera, renderer }
