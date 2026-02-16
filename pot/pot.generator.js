@@ -5,9 +5,31 @@ export function generatePotMesh(pot) {
   const group = new THREE.Group()
 
   // mesh du pot
+
+const geometryOptions = {
+  radiusTop: 1,
+  radiusBottom: 0.6,
+  height: pot.height,
+  radialSegments: 16,
+  heightSegments: 1,
+  openEnded: true,
+  thetaStart: 0,
+  thetaLength: Math.PI * 2
+};
+
   const potMesh = new THREE.Mesh(
-    new THREE.CylinderGeometry(1, 0.6, pot.height, 16),
-    new THREE.MeshStandardMaterial({ color: 0x9b5a3c })
+    new THREE.CylinderGeometry(geometryOptions.radiusTop,
+        geometryOptions.radiusBottom,
+        geometryOptions.height,
+        geometryOptions.radialSegments,
+        geometryOptions.heightSegments,
+        geometryOptions.openEnded,
+        geometryOptions.thetaStart,
+        geometryOptions.thetaLength),
+        
+    new THREE.MeshStandardMaterial({ 
+        color: 0x9b5a3c 
+    })
   )
   group.add(potMesh)
 
