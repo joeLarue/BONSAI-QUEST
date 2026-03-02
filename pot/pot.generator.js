@@ -5,35 +5,31 @@ export function generatePotMesh(pot) {
   const group = new THREE.Group()
 
   // mesh du pot
-  const points = [
-    new THREE.Vector2(0, 0),
-    new THREE.Vector2(0.7 * pot.height, 0),
-    new THREE.Vector2(0.8 * pot.height, pot.height * 0.9),
-    new THREE.Vector2(0.9 * pot.height, pot.height * 0.9),
-    new THREE.Vector2(0.9 * pot.height, pot.height),
-    new THREE.Vector2(0.8 * pot.height, pot.height),
-    new THREE.Vector2(0.7 * pot.height, pot.height * 0.1),
-    new THREE.Vector2(0, pot.height * 0.1)
-  ]
 
-  const potGeometry = new THREE.LatheGeometry(points, 68)
-  
-const textureLoader = new THREE.TextureLoader()
+const geometryOptions = {
+  radiusTop: 1,
+  radiusBottom: 0.6,
+  height: pot.height,
+  radialSegments: 16,
+  heightSegments: 1,
+  openEnded: true,
+  thetaStart: 0,
+  thetaLength: Math.PI * 2
+};
 
-const albedo = textureLoader.load('asset/terracotta_albedo.png')
-albedo.colorSpace = THREE.SRGBColorSpace
-const normal = textureLoader.load('asset/terracotta_normal.png')
-
-const potMaterial = new THREE.MeshStandardMaterial({
-  color: new THREE.Color(0xb65a2c),
-  metalness: 0.0,
-  roughness: 0.85,
-
-})
-
-  const PotMesh = new THREE.Mesh(
-    potGeometry,
-    potMaterial
+  const potMesh = new THREE.Mesh(
+    new THREE.CylinderGeometry(geometryOptions.radiusTop,
+        geometryOptions.radiusBottom,
+        geometryOptions.height,
+        geometryOptions.radialSegments,
+        geometryOptions.heightSegments,
+        geometryOptions.openEnded,
+        geometryOptions.thetaStart,
+        geometryOptions.thetaLength),
+        
+    new THREE.MeshStandardMaterial({ 
+        color: 0x9b5a3c 
+    })
   )
   group.add(PotMesh)
 
