@@ -1,6 +1,7 @@
 import { createScene } from './scene.js'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Bois } from './bois/bois.js';
+import { Bonsai } from './bonsai/bonsai.js';
 import { generateBoisMesh } from './bois/bois.generator.js'
 import * as THREE from 'three'
 import { Feuille } from './feuille/feuille.js';
@@ -42,6 +43,8 @@ console.log(feuille)
 const feuilleMateriel = generateFeuilleMesh(feuille)
 scene.add(feuilleMateriel.group)
 
+const bonsai = new Bonsai()
+bonsai.root.print()
 
 // const cube = new THREE.Mesh(
 //   new THREE.BoxGeometry(1,1,1),
