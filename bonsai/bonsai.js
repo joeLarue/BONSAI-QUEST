@@ -8,6 +8,7 @@ export class BonsaiNode {
     children = []
   
   } = {}) {
+    this.type = type;
     this.element = element
     this.children = children
   }
@@ -24,6 +25,13 @@ export class BonsaiNode {
       child.print(indent + 2)
     }
   }
+  growth() {
+    this.element.growth()
+    for (const child of this.children) {
+      child.growth()
+    }
+    
+  }
 }
 
 export class Bonsai {
@@ -31,15 +39,15 @@ export class Bonsai {
     // La racine d'un bonsaï est toujours son tronc de départ (bois)
     this.root = new BonsaiNode({ 
       type: 'bois',
-      element: new Bois({height:1, width:0.1, rotation_x:0, rotation_y:0, rotation_z:0}),
+      element: new Bois({height:4, width:0.6, rotation_x:0, rotation_y:0, rotation_z:0}),
       children: [
         new BonsaiNode({ 
           type: 'bois',
-          element: new Bois({height:1, width:0.1, rotation_x:0, rotation_y:0, rotation_z:0}),
+          element: new Bois({height:3, width:0.4, rotation_x:Math.PI, rotation_y:Math.PI/2, rotation_z:Math.PI}),
           children: [
             new BonsaiNode({ 
               type: 'feuille',
-              element: new Feuille({radius:1, segment:16}),
+              element: new Feuille({radius:0.3, segment:16, rotation_x:0, rotation_y:Math.PI/2, rotation_z:Math.PI/3}),
               children: []
             })
           ]
@@ -47,11 +55,11 @@ export class Bonsai {
         ,
         new BonsaiNode({ 
           type: 'bois',
-          element: new Bois({height:1, width:0.1, rotation_x:0, rotation_y:0, rotation_z:0}),
+          element: new Bois({height:2, width:0.3, rotation_x:-Math.PI/4, rotation_y:0, rotation_z:0}),
           children: [
             new BonsaiNode({ 
               type: 'feuille',
-              element: new Feuille({radius:1, segment:16}),
+              element: new Feuille({radius:0.4, segment:16, rotation_x:0, rotation_y:Math.PI/2, rotation_z:Math.PI/3}),
               children: []
             })
           ]

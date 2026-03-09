@@ -6,6 +6,7 @@ import { generateBoisMesh } from './bois/bois.generator.js'
 import * as THREE from 'three'
 import { Feuille } from './feuille/feuille.js';
 import { generateFeuilleMesh } from './feuille/feuille.generator.js';
+import { generateBonsaiMesh } from './bonsai/bonsai.generator.js';
 
 const canvas = document.querySelector('#container')
 const { scene, camera, renderer } = createScene(canvas)
@@ -41,21 +42,23 @@ const feuille = new Feuille({
 })
 console.log(feuille)
 const feuilleMateriel = generateFeuilleMesh(feuille)
-scene.add(feuilleMateriel.group)
+//scene.add(feuilleMateriel.group)
 
 const bonsai = new Bonsai()
 bonsai.root.print()
-
+const bonsaiMesh = generateBonsaiMesh(bonsai.root)
+scene.add(bonsaiMesh)
 // const cube = new THREE.Mesh(
 //   new THREE.BoxGeometry(1,1,1),
 //   new THREE.MeshBasicMaterial({ color: 0xff0000 })
 // )
 // scene.add(cube)
 
-// // Bouton "arroser"
-// document.querySelector('#arroser').addEventListener('click', () => {
-//   bonsai.growth()
-// })
+// Bouton "arroser"
+//document.querySelector('#arroser').addEventListener('click', () => {
+//bonsai.root.growth()
+//bonsaiMesh.update()
+//})
 // // Bouton "planter"
 // document.querySelector('#planter').addEventListener('click', () => {
 //   bonsai = new Bonsai({ height: 1, width: 0.5 })

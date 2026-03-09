@@ -12,4 +12,8 @@ export class Bois {
         this.rotation_y = rotation_y
         this.rotation_z = rotation_z
     }
+    growth() {
+        this.height *= 1.1
+        this.width *= 1.2
+    }
 }

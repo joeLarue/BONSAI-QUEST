@@ -15,7 +15,5 @@ export function generateBoisMesh(bois) {
   mesh.position.y = bois.height / 2
   group.add(mesh)
 
-  return {
-    mesh,
-  }
+  return group
 }

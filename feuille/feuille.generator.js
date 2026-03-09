@@ -34,8 +34,6 @@ export function generateFeuilleMesh(feuille) {
   group.add(half2)
   group.translateX(feuille.radius)
   group.rotateX(-Math.PI/2)
-  return {
-    group,
-  }
+  return group
 }
 
